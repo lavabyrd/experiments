@@ -1,22 +1,23 @@
 package main
 
 import (
-	"log"
+	"fmt"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"os"
 
-  "github.com/joho/godotenv"
+	"github.com/joho/godotenv"
 )
 
 func main() {
 
-  err := godotenv.Load()
-  if err != nil {
-    log.Fatal("Error loading .env file")
-  }
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
 
-  DATAHUB_AVA := os.Getenv("DH_AVA_API_KEY")
+	DATAHUB_AVA := os.Getenv("DH_AVA_API_KEY")
 
 	url := "https://avalanche--mainnet--indexer.datahub.figment.io/apikey/" + DATAHUB_AVA + "/"
 	urlupdated := url + os.Args[1]
@@ -36,7 +37,11 @@ func main() {
 		}
 		//Convert the body to type string
 		sb := string(body)
-		log.Printf(sb)
+		// Using log.Printf instead will add a timestamp before the line
+		fmt.Println(sb)
+		// log
+		log.Println(sb)
+
 	}
 
 }
