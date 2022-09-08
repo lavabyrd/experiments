@@ -9,7 +9,7 @@ terraform {
 
 variable "okta_api_token" {
   type        = string
-  description = "api token to provision okta resources"
+  description = "this is the token for okta"
 }
 
 variable "okta_org_name" {
